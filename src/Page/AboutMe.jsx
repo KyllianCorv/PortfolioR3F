@@ -44,7 +44,7 @@ const AboutMe = () => {
             <div style={{ display: 'flex', justifyContent: 'start', marginTop: '30px' }}>
               <ContactIcon icon={<FaGithub style={{ color: 'darkorange', fontSize: '25px' }} />} link="https://github.com/yourgithub" />
               <ContactIcon icon={<FaLinkedin style={{ color: 'darkorange', fontSize: '25px' }} />} link="https://www.linkedin.com/in/yourlinkedin" />
-              <ContactIcon2 email="moi@email.com" />
+              <ContactIcon2 email="mail@email.com" />
             </div>
           </div>
           <div className="slider-container">
