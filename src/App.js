@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import { FiMail, FiPhone } from 'react-icons/fi';
@@ -11,6 +11,8 @@ import Navigation from './components/Navigation';
 
 import Page2 from './Page/AboutMe';
 import Projects from './Page/Projects'
+import Experience from './Page/Experience'
+
 import LoadingBox from './components/LoadingBox';
 
 import './index.css';
@@ -92,22 +94,22 @@ function Home() {
           <AnimatePresence>
             {isMailPopupOpen && (
               <Popup onClose={closePopups} position="1%-2%">
-                <p className="micro-5-charted-regular2">Email : Emailemail</p>
+                <p className="micro-5-charted-regular2">Email : kycorvaisier@gmail.com</p>
               </Popup>
             )}
           </AnimatePresence>
           <AnimatePresence>
             {isPhonePopupOpen && (
               <Popup onClose={closePopups} position="1%-2%">
-                <p className="micro-5-charted-regular2">Numero : 07 07 07 07 07</p>
+                <p className="micro-5-charted-regular2">Numero : 07 68 49 79 32</p>
               </Popup>
             )}
           </AnimatePresence>
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', pointerEvents: 'none' }}>
             <h1 className="micro-5-charted-regular" style={{ fontSize: '6rem', fontWeight: 'revert', margin: 0 }}>Kyllian Corvaisier</h1>
-            <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '3 rem', margin: '0.5rem 0' }}>- Student in BTS SIO option SLAM - </h2>
+            <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '3rem', margin: '0.5rem 0' }}>- Student in BTS SIO option SLAM - </h2>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', pointerEvents: 'auto' }}>
-              <ContactIcon icon={<FaGithub style={{ color: 'darkorange', fontSize: '25px' }} />} />
+              <ContactIcon icon={<FaGithub style={{ color: 'darkorange', fontSize: '25px' }} />} link="https://github.com/KyllianCorv" />
               <ContactIcon icon={<FiMail style={{ color: 'darkorange', fontSize: '25px' }} />} onClick={openMailPopup} />
               <ContactIcon icon={<FiPhone style={{ color: 'darkorange', fontSize: '25px' }} />} onClick={openPhonePopup} />
             </div>
@@ -126,12 +128,22 @@ function Home() {
   );
 }
 
-function ContactIcon({ icon, onClick }) {
-  return (
+function ContactIcon({ icon, link, onClick }) {
+  const content = (
     <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-      <span onClick={onClick}>{icon}</span>
+      <span>{icon}</span>
     </div>
   );
+
+  if (link) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+        {content}
+      </a>
+    );
+  }
+
+  return <div onClick={onClick} style={{ cursor: 'pointer' }}>{content}</div>;
 }
 
 function App() {
@@ -141,6 +153,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path="/aboutme" element={<Page2 />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/experience" element={<Experience />} />
         {/* Add more routes here */}
       </Routes>
     </Router>

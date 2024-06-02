@@ -71,12 +71,15 @@ function MenuButton() {
                 <Link to='/aboutme' className="micro-5-charted-regular3" style={{ textDecoration: 'none', color: location.pathname === '/aboutme' ? 'darkorange' : 'black' }}>About Me</Link>
               </li>
               <li style={{ marginTop: "10px" }}>
-                <Link to='/projects' className="micro-5-charted-regular3" style={{ textDecoration: 'none', color: location.pathname === '/route2' ? 'darkorange' : 'black' }}>Projects</Link>
+                <Link to='/projects' className="micro-5-charted-regular3" style={{ textDecoration: 'none', color: location.pathname === '/projects' ? 'darkorange' : 'black' }}>Projects</Link>
+              </li>
+              <li style={{ marginTop: "10px" }}>
+                <Link to='/experience' className="micro-5-charted-regular3" style={{ textDecoration: 'none', color: location.pathname === '/experience' ? 'darkorange' : 'black' }}>Experience</Link>
               </li>
               <br></br>
-              <li style={{ marginTop: "10px" }}>
+              {/* <li style={{ marginTop: "10px" }}>
                 <Link to='https://willyblanc.netlify.app' className="micro-5-charted-regular3" style={{ textDecoration: 'none', color: location.pathname === '/route2' ? 'darkorange' : 'black' }}>- Site WB</Link>
-              </li>
+              </li> */}
               {/* Add more routes as needed */}
             </ul>
             <div style={{ borderTop: '1px solid #ddd', padding: '20px', textAlign: 'center' }}>

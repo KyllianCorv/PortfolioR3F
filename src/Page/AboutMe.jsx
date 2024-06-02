@@ -42,9 +42,9 @@ const AboutMe = () => {
               I am a student from Jura passionate about the world of computing. Since the beginning of my training, I have been learning a lot, including web development, mobile development, and object-oriented programming (OOP). I am also interested in game design and 3D with R3F.
             </p>
             <div style={{ display: 'flex', justifyContent: 'start', marginTop: '30px' }}>
-              <ContactIcon icon={<FaGithub style={{ color: 'darkorange', fontSize: '25px' }} />} link="https://github.com/yourgithub" />
-              <ContactIcon icon={<FaLinkedin style={{ color: 'darkorange', fontSize: '25px' }} />} link="https://www.linkedin.com/in/yourlinkedin" />
-              <ContactIcon2 email="mai@email.com" />
+              <ContactIcon icon={<FaGithub style={{ color: 'darkorange', fontSize: '25px' }} />} link="https://github.com/KyllianCorv" />
+              <ContactIcon icon={<FaLinkedin style={{ color: 'darkorange', fontSize: '25px' }} />} link="https://www.linkedin.com/in/kyllian-corvaisier-02a222280/" />
+              <ContactIcon2 email="kycorvaisier@gmail.com" />
             </div>
           </div>
           <div className="slider-container">
