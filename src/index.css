@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* animation: fadeOut 0.5s forwards; */
+}
+@keyframes fadeOut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Styles pour le titre */
+.micro-5-charted-regular {
+    font-family: "Asap Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  .micro-5-charted-regular2 {
+    font-family: "Asap Condensed", sans-serif;
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+    margin: 0;
+  }
+
+  .micro-5-charted-regular3 {
+    font-family: "Asap Condensed", sans-serif;
+    font-size: 1.1rem;
+    margin: 0;
+  }

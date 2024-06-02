@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .projects-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .projects-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: darkorange;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .project-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    text-align: left;
+  }
+  
+  .project-image {
+    width: 60%; /* Réduire la taille de l'image */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .project-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+  }
+  
+  .project-card p {
+    margin-bottom: 20px;
+    color: #555;
+    text-align: justify; /* Ajout de l'alignement justifié */
+  }
+  
+  .project-link {
+    color: darkorange;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .projects-title {
+      font-size: 2em;
+    }
+  
+    .project-card {
+      padding: 15px;
+    }
+  
+    .project-image {
+      width: 70%; /* Ajustement pour les tablettes */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .projects-title {
+      font-size: 1.5em;
+    }
+  
+    .project-card {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 10px;
+      flex: 1;
+    }
+  
+    .project-card h2 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+  
+    .project-card p {
+      font-size: 0.9em;
+      margin-bottom: 0;
+    }
+  
+    .project-image {
+      width: 40%; /* Ajustement pour les mobiles */
+      margin-right: 10px;
+    }
+  
+    .project-link {
+      margin-top: 10px;
+    }
+  }
+  
