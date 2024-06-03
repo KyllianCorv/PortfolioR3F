@@ -1,30 +1,39 @@
 // src/Page/ProfessionalJourney.js
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 
 const experiences = [
   {
     id: 1,
-    position: 'Développeur Frontend',
-    company: 'Tech Corp',
-    duration: 'Jan 2021 - Présent',
-    description: 'Développement d\'applications web réactives avec React et Redux.'
+    position: 'BTS SIO option SLAM & Mathématique approfondie',
+    company: 'Lycée Georges Brassens - Rive de Gier 42800',
+    duration: '2022 - 2024',
+    description: 'Au cours de mon BTS SIO option SLAM & Mathématique approfondie, j\'ai développé une solide expertise en informatique à travers une variété de projets. J\'ai exploré la programmation orientée objet (POO) et les principes fondamentaux du développement logiciel. Mes projets ont couvert une large gamme de domaines, incluant le développement web, le développement mobile et la conception d\'applications. J\'ai eu l\'occasion de travailler sur des technologies diverses telles que PHP, JavaScript, C# et bien d\'autres, sans oublier la conception de bases de données relationnelles. Cette expérience m\'a permis de découvrir de multiples facettes du développement logiciel et de développer ma passion pour l\'informatique.',
+    additionalInfo: 'Cliquer pour voir les stages',
+    stages: [
+      {
+        id: 3,
+        position: 'JCOM',
+        duration: 'Mai / Juin 2023',
+        description: 'J\'ai travaillé sur des projets variés lors de mon stage chez JCOM. Mon principal domaine d\'intervention était le développement web sur des plateformes telles que WordPress, utilisant des outils tels que Divi et Elementor pour concevoir et personnaliser des sites web. Mon rôle impliquait principalement la correction et l\'optimisation du code PHP, CSS et JavaScript, ainsi que l\'intégration de fonctionnalités complexes avec jQuery. Cette expérience m\'a permis de développer mes compétences techniques tout en apprenant à travailler sur des projets réels dans un environnement professionnel, ce qui m\'a été précieux pour ma croissance en tant que développeur web.'
+      },      
+      {
+        id: 4,
+        position: 'YATA !',
+        duration: 'Novembre / Décembre 2023',
+        description: 'Pendant mon stage chez YATA !, j\'ai été impliqué dans un projet de grande envergure axé sur l\'écoconception web pour réduire l\'impact environnemental des sites web. Mon rôle était polyvalent et comprenait plusieurs aspects du développement. J\'ai commencé par concevoir des maquettes pour les interfaces utilisateur, en tenant compte des meilleures pratiques d\'écoconception. Ensuite, j\'ai développé un panel administrateur complet en utilisant Flutter et Dart, offrant une interface intuitive pour gérer la consommation du site dans son intégralité. J\'ai utilisé une API pour optimiser les requêtes et minimiser la charge serveur. Ce stage m\'a permis d\'acquérir une compréhension approfondie des défis et des solutions liés à l\'écoconception web, ainsi que des compétences pratiques en conception, développement dans un contexte professionnel.'
+      },
+    ]
   },
   {
     id: 2,
-    position: 'Développeur Backend',
-    company: 'Innovate Ltd.',
-    duration: 'Mar 2018 - Dec 2020',
-    description: 'Création et maintenance d\'API avec Node.js et Express.'
-  },
-  {
-    id: 3,
-    position: 'Stagiaire Développeur',
-    company: 'Web Solutions',
-    duration: 'Jun 2017 - Feb 2018',
-    description: 'Assistance dans le développement de sites web et d\'applications web.'
+    position: 'Baccalauréat général mathématiques et physique chimie',
+    company: 'LEGTA - Montmorot 39362',
+    duration: '2019 - 2022',
+    description: 'Pendant mon Baccalauréat général en mathématiques et physique chimie, j\'ai développé une rigueur de travail et une détermination indéfectibles malgré les notes parfois faibles. Ce parcours m\'a permis de consolider mes connaissances dans les matières scientifiques et d\'acquérir des compétences essentielles telles que l\'analyse critique et la résolution de problèmes.'
   }
+  
 ];
 
 const containerVariants = {
@@ -43,6 +52,12 @@ const itemVariants = {
 };
 
 const ProfessionalJourney = () => {
+  const [openStages, setOpenStages] = useState(false);
+
+  const toggleStages = () => {
+    setOpenStages(!openStages);
+  };
+
   const styles = {
     container: {
       padding: '40px',
@@ -75,9 +90,11 @@ const ProfessionalJourney = () => {
       textAlign: 'left',
       width: '100%',
       display: 'flex',
-      alignItems: 'center',
+      flexDirection: 'column', // Ensuring column direction
+      alignItems: 'flex-start', // Align items to the start
       position: 'relative',
-      transition: 'transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease'
+      transition: 'transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease',
+      cursor: 'pointer'
     },
     yellowSquare: {
       width: '20px',
@@ -104,13 +121,21 @@ const ProfessionalJourney = () => {
     },
     description: {
       fontSize: '1rem',
-      color: '#666'
+      textAlign: "justify",
+      color: '#666',
+      marginTop: '10px',
+      marginRight: '15px'
+    },
+    additionalInfo: {
+      fontSize: '1rem',
+      color: '#FFA500',
+      marginTop: '10px'
     }
   };
 
   return (
     <div style={styles.container}>
-       <Navigation />
+      <Navigation />
       <h1 style={styles.title}>Parcours Professionnel</h1>
       <motion.div
         variants={containerVariants}
@@ -119,20 +144,39 @@ const ProfessionalJourney = () => {
         style={styles.experienceContainer}
       >
         {experiences.map((experience, index) => (
-          <motion.div
-            key={experience.id}
-            variants={itemVariants}
-            whileHover={{ scale: 1.05, backgroundColor: '#fff', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)' }}
-            style={styles.experienceCard}
-          >
-            <div style={styles.yellowSquare}></div>
-            <div>
-              <h2 style={styles.position}>{experience.position}</h2>
-              <h3 style={styles.company}>{experience.company}</h3>
-              <p style={styles.duration}><i>{experience.duration}</i></p>
-              <p style={styles.description}>{experience.description}</p>
-            </div>
-          </motion.div>
+          <React.Fragment key={experience.id}>
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ scale: 1.005, backgroundColor: '#fff', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)' }}
+              style={styles.experienceCard}
+              onClick={experience.stages ? toggleStages : null}
+            >
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={styles.yellowSquare}></div>
+                <div>
+                  <h2 style={styles.position}>{experience.position}</h2>
+                  <h3 style={styles.company}>{experience.company}</h3>
+                  <p style={styles.duration}><i>{experience.duration}</i></p>
+                  <p style={styles.description}>{experience.description}</p>
+                  {experience.stages && <p style={styles.additionalInfo}>{experience.additionalInfo}</p>}
+                </div>
+              </div>
+            </motion.div>
+            {openStages && experience.stages && experience.stages.map((stage) => (
+              <motion.div
+                key={stage.id}
+                variants={itemVariants}
+                style={{ ...styles.experienceCard, marginLeft: '40px', cursor: 'default' }}
+              >
+                <div>
+                  <h2 style={styles.position}>{stage.position}</h2>
+                  <h3 style={styles.company}>{stage.company}</h3>
+                  <p style={styles.duration}><i>{stage.duration}</i></p>
+                  <p style={styles.description}>{stage.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </React.Fragment>
         ))}
       </motion.div>
     </div>

@@ -37,7 +37,7 @@
   }
   
   .project-image {
-    width: 60%; /* Réduire la taille de l'image */
+    width: 100%; /* Réduire la taille de l'image */
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
